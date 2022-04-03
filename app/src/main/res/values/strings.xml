@@ -36,4 +36,11 @@
     <string name="poster_image">Poster Image</string>
     <string name="icon_rating">Icon Rating</string>
     <string name="fab_favorites">Fab Favorites</string>
+
+
+    <string-array name="filter_item">
+        <item>Newest</item>
+        <item>Oldest</item>
+        <item>Rating</item>
+    </string-array>
 </resources>

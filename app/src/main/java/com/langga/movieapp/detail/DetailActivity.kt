@@ -22,8 +22,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        window.setFlags(FLAG_TRANSLUCENT_NAVIGATION, FLAG_TRANSLUCENT_NAVIGATION);
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        window.setFlags(FLAG_TRANSLUCENT_NAVIGATION, FLAG_TRANSLUCENT_NAVIGATION)
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val getDetailMovieFromItemCLick = intent?.getParcelableExtra<Movie>(EXTRA_DATA)
         showDetailMovie(getDetailMovieFromItemCLick)

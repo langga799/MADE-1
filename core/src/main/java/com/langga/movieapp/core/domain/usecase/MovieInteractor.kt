@@ -1,5 +1,6 @@
 package com.langga.movieapp.core.domain.usecase
 
+import android.util.Log
 import com.langga.movieapp.core.data.source.Resource
 import com.langga.movieapp.core.domain.model.Movie
 import com.langga.movieapp.core.domain.repository.IMovieRepository
@@ -7,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseCase {
 
-    override fun getAllMovie(): Flow<Resource<List<Movie>>> = movieRepository.getAllMovie()
+    override fun getAllMovie(query: String): Flow<Resource<List<Movie>>> = movieRepository.getAllMovie(query)
 
     override fun getFavoriteMovie(): Flow<List<Movie>> = movieRepository.getFavoriteMovie()
 
@@ -16,6 +17,10 @@ class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseC
 
     override fun searchMovie(query: String): Flow<List<Movie>> {
         return movieRepository.searchMovie(query)
+    }
+
+    init {
+        Log.d("interactor", searchMovie("m").toString())
     }
 
 }

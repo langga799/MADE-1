@@ -35,12 +35,12 @@ class SearchFragment : Fragment() {
         binding.searchMovie.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                searchQuery(query)
+                searchQuery(query.orEmpty())
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
+                searchQuery(newText.orEmpty())
                 return true
             }
 
@@ -57,7 +57,6 @@ class SearchFragment : Fragment() {
 
 
     private fun searchQuery(text: String?){
-        Log.d("search", text.toString())
         if (text != null) {
             viewModel.searchMovie(text).observe(viewLifecycleOwner){ resultSearching ->
                 movieAdapter.setDataMovies(resultSearching)
