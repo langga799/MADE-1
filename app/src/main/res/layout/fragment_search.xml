@@ -28,6 +28,16 @@
    </com.google.android.material.card.MaterialCardView>
 
 
+   <ImageView
+       android:id="@+id/noResult"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:src="@drawable/no_result"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rvSearchMovie"
        android:layout_width="match_parent"

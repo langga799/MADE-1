@@ -17,7 +17,7 @@ interface DaoMovie {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movie: List<MovieEntity>)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateFavoriteMovie(movieEntity: MovieEntity)
 
     @Query("SELECT * FROM movie_entity where title like :query")

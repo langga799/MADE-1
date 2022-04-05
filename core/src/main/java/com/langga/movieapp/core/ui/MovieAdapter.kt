@@ -16,9 +16,10 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun setDataMovies(newListMovie: List<Movie>?) {
-        listMovie.clear()
         if (newListMovie != null) {
             listMovie.addAll(newListMovie)
+        } else {
+            listMovie.clear()
         }
         notifyDataSetChanged()
     }

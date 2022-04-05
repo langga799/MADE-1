@@ -15,6 +15,9 @@ import com.langga.movieapp.R
 import com.langga.movieapp.core.data.source.Resource
 import com.langga.movieapp.core.ui.MovieAdapter
 import com.langga.movieapp.core.utils.Sorting
+import com.langga.movieapp.core.utils.gone
+import com.langga.movieapp.core.utils.toast
+import com.langga.movieapp.core.utils.visible
 import com.langga.movieapp.databinding.FragmentHomeBinding
 import com.langga.movieapp.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -38,6 +41,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.loadingHome.gone()
         binding.apply {
             rvMovie.layoutManager = GridLayoutManager(requireActivity(), 2)
             rvMovie.setHasFixedSize(true)
@@ -105,9 +109,15 @@ class HomeFragment : Fragment() {
         viewModel.getAllMovie(query).observe(viewLifecycleOwner) { movie ->
             if (movie != null) {
                 when (movie) {
-                    is Resource.Loading -> print("loading")
-                    is Resource.Success -> adapter.setDataMovies(movie.data)
-                    is Resource.Error -> print("error")
+                    is Resource.Loading -> binding.loadingHome.visible()
+                    is Resource.Success -> {
+                        adapter.setDataMovies(movie.data)
+                        binding.loadingHome.gone()
+                    }
+                    is Resource.Error -> {
+                        binding.loadingHome.gone()
+                        resources.getString(R.string.error_message).toast(requireActivity())
+                    }
                 }
             }
         }
