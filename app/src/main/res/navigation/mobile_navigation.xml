@@ -14,14 +14,13 @@
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.langga.movieapp.search.SearchFragment"
-        android:label="Search Movie"
+        android:label="@string/search_movie"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_favorite"
         android:name="com.langga.movieapp.favorite.favorite.FavoriteFragment"
-        app:moduleName="My_Application.favorite"
-        android:label="Favorite Movie" />
-
+        android:label="@string/favorite_movie"
+        app:moduleName="My_Application.favorite" />
 
 </navigation>

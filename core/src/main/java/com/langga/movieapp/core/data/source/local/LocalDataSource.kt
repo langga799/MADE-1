@@ -1,6 +1,5 @@
 package com.langga.movieapp.core.data.source.local
 
-import android.util.Log
 import com.langga.movieapp.core.data.source.local.entity.MovieEntity
 import com.langga.movieapp.core.data.source.local.room.DaoMovie
 import com.langga.movieapp.core.utils.Sorting
@@ -27,7 +26,4 @@ class LocalDataSource constructor(private val daoMovie: DaoMovie) {
         return daoMovie.searchMovie(query)
     }
 
-    init {
-        Log.d("LocalDataSource", searchMovie("m").toString())
-    }
 }

@@ -1,7 +1,6 @@
 package com.langga.movieapp.core.ui
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,10 +15,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun setDataMovies(newListMovie: List<Movie>?) {
-        if (newListMovie != null) {
-            listMovie.addAll(newListMovie)
-        } else {
-            listMovie.clear()
+        listMovie.apply {
+            clear()
+            addAll(newListMovie.orEmpty())
         }
         notifyDataSetChanged()
     }

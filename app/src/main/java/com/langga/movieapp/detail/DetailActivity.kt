@@ -51,15 +51,16 @@ class DetailActivity : AppCompatActivity() {
                 setIconFavorite(statusFavorite)
             }
         }
-
-
     }
 
-    private fun setIconFavorite(statusFavorite: Boolean){
+
+    private fun setIconFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_fill))
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,
+                R.drawable.ic_favorite_fill))
         } else {
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border))
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,
+                R.drawable.ic_favorite_border))
         }
     }
 

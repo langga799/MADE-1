@@ -51,6 +51,7 @@ class SearchFragment : Fragment() {
 
         })
 
+
         movieAdapter = MovieAdapter()
         binding.rvSearchMovie.apply {
             layoutManager = GridLayoutManager(requireActivity(), 2)

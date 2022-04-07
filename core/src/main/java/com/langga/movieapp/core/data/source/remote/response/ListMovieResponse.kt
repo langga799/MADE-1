@@ -14,7 +14,7 @@ data class ListMovieResponse(
 	val results: List<ResultMovie>,
 
 	@field:SerializedName("total_results")
-	val totalResults: Int
+	val totalResults: Int,
 )
 
 data class ResultMovie(
@@ -59,5 +59,5 @@ data class ResultMovie(
 	val adult: Boolean,
 
 	@field:SerializedName("vote_count")
-	val voteCount: Int
+	val voteCount: Int,
 )

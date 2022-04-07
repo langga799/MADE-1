@@ -1,6 +1,5 @@
 package com.langga.movieapp.core.data.source
 
-import android.util.Log
 import com.langga.movieapp.core.data.source.local.LocalDataSource
 import com.langga.movieapp.core.data.source.remote.RemoteDataSource
 import com.langga.movieapp.core.data.source.remote.network.ApiResponse
@@ -18,7 +17,7 @@ class MovieRepository(
     private val appExecutors: AppExecutors,
 ) : IMovieRepository {
 
-    override fun getAllMovie(query:String): Flow<Resource<List<Movie>>> {
+    override fun getAllMovie(query: String): Flow<Resource<List<Movie>>> {
         return object : NetworkBoundResource<List<Movie>, List<ResultMovie>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie(query).map {
@@ -50,7 +49,7 @@ class MovieRepository(
 
     override fun setFavoriteMovie(movie: Movie, state: Boolean) {
         val movieEntity = DataMapper.mapDomainToEntity(movie)
-        appExecutors.diskIO().execute{
+        appExecutors.diskIO().execute {
             localDataSource.setFavoriteMovie(movieEntity, state)
         }
     }
@@ -60,9 +59,4 @@ class MovieRepository(
             DataMapper.mapEntitiesToDomain(it)
         }
     }
-
-    init {
-        Log.d("repository", searchMovie("m").toString())
-    }
-
 }

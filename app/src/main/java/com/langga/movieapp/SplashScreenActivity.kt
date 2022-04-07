@@ -2,8 +2,8 @@ package com.langga.movieapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.langga.movieapp.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.*
 

@@ -6,12 +6,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "movie_entity")
-data class MovieEntity (
+data class MovieEntity(
 
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-    var idMovie : Int,
+    var idMovie: Int,
 
     @ColumnInfo(name = "title")
     var originalTitle: String,
@@ -35,5 +35,5 @@ data class MovieEntity (
     var voteAverage: Double,
 
     @ColumnInfo
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean = false,
 )
